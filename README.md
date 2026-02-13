@@ -9,3 +9,4 @@
         - [Backend APIs]()
     - [Frontend](proposals/redis_streams_sse_frontend.md)
         - [Implementation Proposal](proposals/redis_streams_sse_frontend.md)
+        - [API Reference (Frontend Handoff)](proposals/redis_streams_sse_frontend_handoff.md)
