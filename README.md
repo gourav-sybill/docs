@@ -3,9 +3,10 @@
 # 2026
 
 ## Feb
-- Redis Streams
-    - [Short version](2026/feb/redis_streams/redis_streams_sse_frontend.md)
-    - [Backend](2026/feb/redis_streams/redis_streams_sse_resilience.md)
-    - [Frontend](2026/feb/redis_streams/redis_streams_sse_frontend.md)
-        - [Implementation Proposal](2026/feb/redis_streams/redis_streams_sse_frontend.md)
-        - [API Reference (Frontend Handoff)](2026/feb/redis_streams/redis_streams_sse_frontend_handoff.md)
+
+### 1. Redis Streams - [Short version](2026/feb/redis_streams/redis_streams_sse_frontend.md)
+
+- [Backend](2026/feb/redis_streams/redis_streams_sse_resilience.md)
+- [Frontend](2026/feb/redis_streams/redis_streams_sse_frontend.md)
+    - [Implementation Proposal](2026/feb/redis_streams/redis_streams_sse_frontend.md)
+    - [API Reference (Frontend Handoff)](2026/feb/redis_streams/redis_streams_sse_frontend_handoff.md)
