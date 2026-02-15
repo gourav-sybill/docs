@@ -564,14 +564,16 @@ Migrated the 120-line `upsert_new_user_by_email` utility from `creation_helpers.
 
 **All direct `users` collection accesses in `routers/users.py` are now fully migrated to the DAL layer.**
 
-### 4. E2E integration tests
+### 4. E2E integration tests — DONE
 
-Full-flow integration tests were planned but deferred — they require extensive mocking of Auth0, Stripe, and external services:
-- Full `join_organization` flow (create new org + join existing org)
-- Full `on_user_login_via_auth0` flow (new user + existing user)
-- Full `link_calendar` flow
-- Full `link_integration_to_account` flow
-- Full referral flow (`add_referral_info` → `send_referral_email` → `get_referrals`)
+Added 35 E2E integration tests across 4 test files covering all deferred endpoint flows:
+
+- **`test_e2e_referrals.py`** (10 tests): `add_referral_info`, `get_referrals`, `send_referral_email` — new recipient creation, existing recipient handling, affiliate validation, referral doc creation
+- **`test_e2e_join_org.py`** (8 tests): `join_organization` — create new org (admin role), join existing org (member role), invite validation, domain matching, already-in-org guard
+- **`test_e2e_integrations.py`** (12 tests): `link_calendar`, `link_integration_to_account`, `unlink_integration_from_account` — Google Calendar linking, email account linking, credential validation, CANCELLED state event append
+- **`test_e2e_auth0_login.py`** (5 tests): `on_user_login_via_auth0` — multi-org/legacy routing, cache invalidation, org background task orchestration, response shape
+
+Pattern: HTTP-level tests via `AsyncClient` + `ASGITransport`, real MongoDB (Docker), external services mocked (`mocker.patch`). Extended `conftest.py` `test_client` fixture with `api_tokens`, `email_client`, `rate_limiter`.
 
 ## Verification
 
